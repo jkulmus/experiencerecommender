@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Recommender</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Experience Recommendation Tool</h1>
+
+    <div class="form-container">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" placeholder="Enter your name">
+
+        <label for="mood">Mood:</label>
+        <select id="mood">
+            <option value="" disabled selected>Select Mood</option>
+            <option value="relaxing">Relaxing</option>
+            <option value="adventure">Adventure</option>
+            <option value="luxury">Luxury</option>
+        </select>
+
+        <label for="activity">Activity Level:</label>
+        <select id="activity">
+            <option value="" disabled selected>Select Activity Level</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+
+        <button id="recommendBtn">Get Recommendation</button>
+    </div>
+
+    <div id="result"></div>
+    
+    <!-- Lodash Library-->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

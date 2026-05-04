@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "experiencerecommender-1",
+			"path": "../experiencerecommender-1"
+		}
+	],
+	"settings": {}
+}
