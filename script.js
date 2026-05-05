@@ -11,7 +11,7 @@ const bonusActivities = [
     "Guided tour",
     "Exclusive dining experience",
     "Evening entertainment event", 
-    "VIP Backstand pass",
+    "VIP Backstage pass",
     "Local artisan workshop"
 ];
 
@@ -50,7 +50,7 @@ function generateRecommendation() {
             { mood: "luxury", activity: "medium", result: "Premium stay with curated activities" },
             { mood: "luxury", activity: "low", result: "Private suite with relaxation services" },
             { mood: "luxury", activity: "high", result: "Helicopter tour with private glacier landing" },
-            { mood: "luxury", activity: "high", result: "Private yatch charter with deep sea diving" }
+            { mood: "luxury", activity: "high", result: "Private yacht charter with deep sea diving" }
         ];
 
         // 1. Recursion - Find an exact match
@@ -76,7 +76,7 @@ function generateRecommendation() {
     } catch (err) {
         // catch the error throw above
         resultDiv.style.display = "inline-block";
-        resultDiv.innerHTML = `<p style='color: #d9534f; font-weight: bold;'>⚠️ Error: ${err.message}</p>`;
+        resultDiv.innerHTML = `<div class="error-message">⚠️ ${err.message}</div>`;
         console.error("Validation Error:", err.message);
     } finally {
         // runs regardless of success or failure
@@ -102,7 +102,7 @@ function findMatchRecursive(experiences, mood, activity, index) {
         return current.result;
     }
 
-    // Recursive call: move to the next item in ghe array
+    // Recursive call: move to the next item in the array
     return findMatchRecursive(experiences, mood, activity, index + 1);
 }
 

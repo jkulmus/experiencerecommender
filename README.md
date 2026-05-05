@@ -3,7 +3,7 @@ As a software development student I am working to build a personal software port
 
 The software demonstrates core JavaScript concepts including functions, recursion, arrays, DOM manipulation, and the integration of the external Lodash library. By combining a weighted scoring algorithm with a recursive search, the application provides both "Best Matches" and "Exact Matches" based on the user inputs.
 
-The purpose of this project is to strengthen my understanding of fuctional programming and interactive web design while documenting the process of writing, testing, and publishing software to a public GitHub repository.
+The purpose of this project is to strengthen my understanding of functional programming and interactive web design while documenting the process of writing, testing, and publishing software to a public GitHub repository.
 
 
 [Software Demo Video](https://www.loom.com/share/df231dbb3e4c42c19c8bfa23c67a59f6)

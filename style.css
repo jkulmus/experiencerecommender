@@ -34,6 +34,28 @@ button:hover {
     background-color: #555;
 }
 
+.score-text {
+    display: block;
+    margin-left: 28px;
+    font-size: 0.75rem;
+    color: #777;
+    margin-top: 2px;
+}
+
+.error-message {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0);}
+}
+
 #result {
     margin-top: 20px;
     font-size: 18px;
@@ -46,12 +68,5 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.score-text {
-    display: block;
-    margin-left: 28px;
-    font-size: 0.75rem;
-    color: #777;
-    margin-top: 2px;
+    animation: fadeIn 0.5s ease-out;
 }
