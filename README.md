@@ -29,3 +29,28 @@ This project is built using HTML, CSS, and JavaScript and runs in the browser. I
 - Use of ES6 array methods (map, sort, slice)
 - External JavaScript library (Lodash)
 - Randomized bonus activity
+
+# How to Run the Program
+1. Download or clone the respoistory
+2. Open the `index.html` file in any web browser
+3. Enter your name (optional)
+4. Select a mood and activity level
+5. Click "Get Recommendation" to see results
+
+# Time Spent
+I spent approximately 14 hours split between planning, coding, debugging, and documentation
+
+# Learning Strategies
+- Breaking the project into smaller functions
+- Testing each feature in increments
+- Using console logs to debug issues
+- Reading information on MDN and Lodash
+- Practicing recursion in a separate file before implementing it in this project
+
+# Challenges and Improvements
+One major challenge was finding a meaningful way to implement recursion. I overcame this by writing a simple recursive example and applying it to search through the experience array
+
+In the future, I would improve my project by:
+- Add more user input options
+- Expand experience database
+- Improve UI/UX design with animations and images

@@ -1,8 +1,11 @@
 /**
  * Experience Recommendation Tool
  * By: Jacquelyn Kulmus
- * * This script manages a recommendation engine using a weighted scoring algorithm,
- * recursive searching, and external library integration using Lodash.
+ * 
+ * * This script manages a recommendation engine using:
+ * - A weighted scoring algorithm
+ * - Recursive searching
+ * - External library integration (Lodash)
  */
 
 // Bonus Activity Array for Lodash randomization
@@ -15,11 +18,11 @@ const bonusActivities = [
     "Local artisan workshop"
 ];
 
-// Event listener for button
+// Event listener for button click
 document.getElementById("recommendBtn").addEventListener("click", generateRecommendation);
 
 // Main Function
-// Demonstrates: Exception handling, array methods, and usage of a library
+// Handles user input, validation, scoring, and output
 function generateRecommendation() {
     const resultDiv = document.getElementById("result");
     const nameValue = document.getElementById("name").value.trim();
@@ -27,17 +30,17 @@ function generateRecommendation() {
     const activityValue = document.getElementById("activity").value;
 
     try {
-        // -- STRETCH CHALLENGE: Exception Handling --
-        // Throw errors if the user hasn't provided the necessary input
+        // Validate required inputs
         if (!moodValue || ! activityValue) {
             throw new Error("Missing Preferences: Please select both a Mood and an Activity Level");
         }
 
+        // Validate name length
         if (nameValue.length > 20) {
             throw new Error("Invalid Name: Please keep the name under 20 characters");
         }
 
-        //Main Data Array
+        //Main Data Array (multiple possible matches per category)
         const experiences = [
             { mood: "relaxing", activity: "low", result: "Peaceful garden retreat with spa access" },
             { mood: "relaxing", activity: "medium", result: "Scenic nature walk with picnic experience" },
@@ -53,70 +56,83 @@ function generateRecommendation() {
             { mood: "luxury", activity: "high", result: "Private yacht charter with deep sea diving" }
         ];
 
-        // 1. Recursion - Find an exact match
+        // 1. Recursion - Find an exact match - first match found
         const recursiveMatch = findMatchRecursive(experiences, moodValue, activityValue, 0);
 
-        // 2. System Scoring -> use .map to create a new array with calculated scores
+        // 2. System Scoring
+        // Mood is weighted higher than activity
         const scored = experiences.map(exp => {
             let score = 0;
+
+            // Assign higher weight to mood match
             if (exp.mood === moodValue) score += 2;
+
+            // Assign lower weight to activity match
             if (exp.activity === activityValue) score += 1;
+
             return { ...exp, score };
         });
 
-        // Use .sort to rank activity by highest score and .slice to get top 2
+        // Sort results by score (highest first)
         const sorted = scored.sort((a, b) => b.score - a.score);
+
+        // Take top 2 recommendations
         const topResults = sorted.slice(0, 2);
 
-        // 3. External Library - Lodash to sample random bonus activities
+        // 3. External Library (Lodash): random bonus suggestion
         const randomBonus = _.sample(bonusActivities);
 
-        // 4. Display 
+        // 4. Display results to user
         displayResults(nameValue, topResults, randomBonus, recursiveMatch);
+
     } catch (err) {
-        // catch the error throw above
+        // show error message
         resultDiv.style.display = "inline-block";
         resultDiv.innerHTML = `<div class="error-message">⚠️ ${err.message}</div>`;
         console.error("Validation Error:", err.message);
     } finally {
-        // runs regardless of success or failure
+        // Always runs - useful for debugging/logging
         console.log("Recommendation attempt completed at: " + new Date().toLocaleDateString());
     }
 }
 
 /**
- * Recursion Logic:
- * Searches for an exact match by iterating through the array recursively
+ * Recursion Function
+ * Searches for the first exact match in the array
  */
 
 function findMatchRecursive(experiences, mood, activity, index) {
-    // Base Case: Array exhausted
+    // Base Case: reached end of array
     if (index >= experiences.length) {
         return "No exact match found";
     }
 
     const current = experiences[index];
 
-    // Base Case: Check for exact match
+    // Base Case: match found
     if (current.mood === mood && current.activity === activity) {
         return current.result;
     }
 
-    // Recursive call: move to the next item in the array
+    // Recursive call: check next time
     return findMatchRecursive(experiences, mood, activity, index + 1);
 }
 
 /**
- * Display Function - Updates the DOM with results
+ * Display Function 
+ * Updates the DOM with recommendations
  */
 function displayResults(userName, results, bonus, recursiveResult) {
     const resultDiv = document.getElementById("result");
     resultDiv.style.display = "inline-block";
 
-    let headerText = userName? `Recommendations for ${userName}:` : `Your Recommendations:`;
+    let headerText = userName
+        ? `Recommendations for ${userName}:` 
+        : `Your Recommendations:`;
+
     let output = `<h3>${headerText}</h3>`;
 
-    // .forEach to build top matches list
+    // Loop through top results
     results.forEach((res) => {
         output += `
             <p>
@@ -127,16 +143,15 @@ function displayResults(userName, results, bonus, recursiveResult) {
 
     output += `<hr>`;
 
-    // Recursion display
+    // Show recursion result
     if (recursiveResult !== "No exact match found") {
         output += `<p><strong>Exact Match Found via Recursion:</strong><br>${recursiveResult}</p>`;
     } else {
-        output += `<p><em>Note: No exact match found for this combo. Showing best alternatives</em></p>`;
+        output += `<p><em>No exact match found. Showing best alternatives</em></p>`;
     }
 
-    // Display Lodash bonus
+    // Bonus activity
     output += `<p><strong>Bonus Activity:</strong> ${bonus}</p>`;
     
-
     resultDiv.innerHTML = output;
 }
