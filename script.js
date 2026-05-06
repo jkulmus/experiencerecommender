@@ -15,7 +15,10 @@ const bonusActivities = [
     "Exclusive dining experience",
     "Evening entertainment event", 
     "VIP Backstage pass",
-    "Local artisan workshop"
+    "Local artisan workshop",
+    "Sunset photography session",
+    "Cultural storytelling experience",
+    "Hands-on cooking class with a local chef"
 ];
 
 // Event listener for button click
@@ -43,15 +46,22 @@ function generateRecommendation() {
         //Main Data Array (multiple possible matches per category)
         const experiences = [
             { mood: "relaxing", activity: "low", result: "Peaceful garden retreat with spa access" },
-            { mood: "relaxing", activity: "medium", result: "Scenic nature walk with picnic experience" },
-            { mood: "relaxing", activity: "high", result: "Yoga retreat with mountain hiking" },
+            { mood: "relaxing", activity: "low", result: "Cozy fireside lounge with apple cider" },
             { mood: "relaxing", activity: "low", result: "Library lounge with your favorite beverage" },
+            { mood: "relaxing", activity: "medium", result: "Scenic nature walk with picnic experience" },
+            { mood: "relaxing", activity: "medium", result: "Gentle bike ride through quiet countryside paths" },
+            { mood: "relaxing", activity: "high", result: "Yoga retreat with mountain hiking" },
+            { mood: "relaxing", activity: "high", result: "Sunrise beach yoga followed by paddleboarding" },
             { mood: "adventure", activity: "low", result: "Hot air balloon ride at sunrise" },
+            { mood: "adventure", activity: "low", result: "Stargazing night tour with telescope viewing" },
             { mood: "adventure", activity: "medium", result: "Off-road Jeep tour through canyon lands" },
-            { mood: "adventure", activity: "high", result: "Action-packed outdoor adventure experience" },
+            { mood: "adventure", activity: "medium", result: "Zipline canopy with scenic overlooks" },
             { mood: "adventure", activity: "medium", result: "Guided exploration and outdoor excursions" },
-            { mood: "luxury", activity: "medium", result: "Premium stay with curated activities" },
+            { mood: "adventure", activity: "high", result: "Action-packed outdoor adventure experience" },
+            { mood: "adventure", activity: "high", result: "Rockclimbing expedition with guides" },
             { mood: "luxury", activity: "low", result: "Private suite with relaxation services" },
+            { mood: "luxury", activity: "medium", result: "Premium stay with curated activities" },
+            { mood: "luxury", activity: "medium", result: "Private art gallery viewing with expert host" },
             { mood: "luxury", activity: "high", result: "Helicopter tour with private glacier landing" },
             { mood: "luxury", activity: "high", result: "Private yacht charter with deep sea diving" }
         ];
