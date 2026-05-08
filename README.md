@@ -6,7 +6,7 @@ The software demonstrates core JavaScript concepts including functions, recursio
 The purpose of this project is to strengthen my understanding of functional programming and interactive web design while documenting the process of writing, testing, and publishing software to a public GitHub repository.
 
 
-[Software Demo Video](https://www.loom.com/share/df231dbb3e4c42c19c8bfa23c67a59f6)
+[Software Demo Video](https://youtu.be/-ZmNoCBWwFI)
 
 # Development Environment
 
